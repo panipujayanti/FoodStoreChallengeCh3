@@ -8,4 +8,6 @@
     <string name="text_discount">Diskon 30%</string>
     <string name="text_complement_discount">Pesan makanan lewat aplikasi dan dapatkan diskonmu</string>
     <string name="text_title_list_menu">List Menu Makanan</string>
+    <string name="tv_desc_button">Tambah ke Keranjang - Rp. %1$d</string>
+    <string name="text_location">Lokasi</string>
 </resources>

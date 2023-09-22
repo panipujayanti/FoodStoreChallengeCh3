@@ -20,7 +20,6 @@ import com.napa.foodstorechallengech3.presentation.fragmenthome.adapter.AdapterL
 import com.napa.foodstorechallengech3.presentation.fragmenthome.adapter.AdapterListCategories
 import com.napa.foodstorechallengech3.presentation.fragmenthome.adapter.MenuListAdapter
 
-
 class FragmentHome : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
@@ -30,10 +29,16 @@ class FragmentHome : Fragment() {
 
     private val adapter: MenuListAdapter by lazy {
         MenuListAdapter(AdapterLayoutMode.LINEAR) {menu: Menu ->
+            navigateToDetail(menu)
         }
     }
 
+    private fun navigateToDetail(menu: Menu) {
+        findNavController().navigate(
+            FragmentHomeDirections.actionFragmentHomeToFragmentDetail(menu)
+        )
 
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

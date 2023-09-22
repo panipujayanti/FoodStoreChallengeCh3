@@ -21,7 +21,7 @@ class MenuDataSourceImpl() : MenuDataSource {
             price = 25000.0,
             img = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/img_spicy_burger.png",
             detail = "Daging gurih dengan saus pedas, sajikan dengan saunan segar dan keju leleh dalam roti burger yang meledakkan rasa pedas. Panasnya memabukkan!",
-            location = "Jl. Bumi No.58 A, Gunung, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12120"
+            location = "Jl. BSD Green Office Park Jl. BSD Grand Boulevard, Sampora, BSD, Kabupaten Tangerang, Banten 15345"
         ),
         Menu(
             name = "Cheese Burger",

@@ -40,7 +40,8 @@ class FragmentDetail : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setClickListener()
-        showMenuData()
+        showDetailData()
+        calculateProductTotalPrice()
     }
 
     private fun setClickListener() {
@@ -68,7 +69,7 @@ class FragmentDetail : Fragment() {
             }
         }
     }
-    private fun showMenuData() {
+    private fun showDetailData() {
         menu?.let { a ->
             binding.apply {
                 ivMenu.load(a.img){
@@ -82,7 +83,31 @@ class FragmentDetail : Fragment() {
                 }
                 tvLocation.text = a.location
                 btnAdd.text =
-                    getString(R.string.tv_desc_button, a.price.toInt())
+                    getString(R.string.text_product_price_calculate, a.price.toInt())
+            }
+        }
+    }
+    private fun calculateProductTotalPrice(){
+        var totalProduct : Int = 1
+        var totalPrice : Double
+        val minusImage = binding.ivMinus
+        val plusImage = binding.ivPlus
+        val textTotalProduct = binding.tvProductCalculate
+        val textTotalPrice = binding.btnAdd
+        plusImage.setOnClickListener{
+            totalProduct += 1
+            totalPrice = (totalProduct * (menu?.price?.toInt() ?: 0)).toDouble()
+            textTotalProduct.text = totalProduct.toString()
+            textTotalPrice.text = getString(R.string.text_product_price_calculate, totalPrice.toInt())
+        }
+        minusImage.setOnClickListener{
+            if (totalProduct <= 1){
+                totalProduct = 1
+            } else {
+                totalProduct -= 1
+                totalPrice = (totalProduct * (menu?.price?.toInt() ?: 0)).toDouble()
+                textTotalProduct.text = totalProduct.toString()
+                textTotalPrice.text = getString(R.string.text_product_price_calculate, totalPrice.toInt())
             }
         }
     }

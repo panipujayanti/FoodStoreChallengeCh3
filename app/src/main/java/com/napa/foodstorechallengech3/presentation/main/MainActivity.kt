@@ -1,7 +1,8 @@
-package com.napa.foodstorechallengech3
+package com.napa.foodstorechallengech3.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.napa.foodstorechallengech3.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

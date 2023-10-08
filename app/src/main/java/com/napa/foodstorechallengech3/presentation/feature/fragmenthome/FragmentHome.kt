@@ -21,6 +21,7 @@ import com.napa.foodstorechallengech3.data.repository.MenuRepositoryImpl
 import com.napa.foodstorechallengech3.databinding.FragmentHomeBinding
 import com.napa.foodstorechallengech3.model.Categories
 import com.napa.foodstorechallengech3.model.Menu
+import com.napa.foodstorechallengech3.presentation.feature.detailmenu.DetailMenuActivity
 import com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter.AdapterLayoutMode
 import com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter.AdapterListCategories
 import com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter.MenuListAdapter
@@ -119,7 +120,7 @@ class FragmentHome : Fragment() {
     }
 
     private fun navigateToDetail(item: Menu) {
-
+        DetailMenuActivity.startActivity(requireContext(), item)
     }
 
 }

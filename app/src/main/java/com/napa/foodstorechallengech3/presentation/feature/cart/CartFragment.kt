@@ -19,6 +19,7 @@ import com.napa.foodstorechallengech3.model.Cart
 import com.napa.foodstorechallengech3.model.CartMenu
 import com.napa.foodstorechallengech3.presentation.common.adapter.CartListAdapter
 import com.napa.foodstorechallengech3.presentation.common.adapter.CartListener
+import com.napa.foodstorechallengech3.presentation.feature.checkout.CheckoutActivity
 import com.napa.foodstorechallengech3.utils.GenericViewModelFactory
 import com.napa.foodstorechallengech3.utils.hideKeyboard
 import com.napa.foodstorechallengech3.utils.proceedWhen
@@ -73,7 +74,9 @@ class CartFragment : Fragment() {
     }
 
     private fun setClickListener() {
-
+        binding.btnCheckout.setOnClickListener {
+            context?.startActivity(Intent(requireContext(), CheckoutActivity::class.java))
+        }
     }
 
     private fun setupList() {

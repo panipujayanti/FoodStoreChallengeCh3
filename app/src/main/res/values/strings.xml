@@ -17,10 +17,19 @@
     <string name="text_nav_profile">Profile</string>
     <string name="text_nav_cart">Cart</string>
     <string name="text_nav_home">Home</string>
+    <string name="total_quantity">x%s</string>
     <string name="text_label_username">Username</string>
     <string name="text_user_name">Pani Puja Yanti</string>
     <string name="text_label_email_address">Email</string>
     <string name="text_email_address">panipujayanti@gmail.com</string>
     <string name="text_label_phone_number">Nomor Telepon</string>
     <string name="text_phone_number">08886040870</string>
+    <string name="text_delivery_method">Metode Pengiriman</string>
+    <string name="text_pick_up">Ambil Sendiri</string>
+    <string name="text_delivery">Dikirim</string>
+    <string name="text_title_payment_method">Metode Pembayaran</string>
+    <string name="text_cash">Tunai</string>
+    <string name="text_e_wallet">Digital</string>
+    <string name="text_shopping_summary">Ringkasan Pembayaran</string>
+    <string name="text_checkout">Pesan</string>
 </resources>

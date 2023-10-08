@@ -1,4 +1,4 @@
-package com.napa.foodstorechallengech3.presentation.main
+package com.napa.foodstorechallengech3.presentation.feature.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

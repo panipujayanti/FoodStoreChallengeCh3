@@ -6,10 +6,10 @@ import java.util.UUID
 
 @Parcelize
 data class Menu(
-    val id: String = UUID.randomUUID().toString(),
+    val id: Int? = null,
     val name: String,
     val price: Double,
-    val img: String,
-    val detail: String,
+    val menuImgUrl: String,
+    val desc: String,
     val location: String,
 ) : Parcelable

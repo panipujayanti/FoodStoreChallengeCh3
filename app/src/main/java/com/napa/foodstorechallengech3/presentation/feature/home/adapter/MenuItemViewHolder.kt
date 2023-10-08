@@ -1,4 +1,4 @@
-package com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter
+package com.napa.foodstorechallengech3.presentation.feature.home.adapter
 
 
 import androidx.recyclerview.widget.RecyclerView

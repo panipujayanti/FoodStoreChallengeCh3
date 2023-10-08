@@ -10,4 +10,11 @@
     <string name="text_title_list_menu">List Menu Makanan</string>
     <string name="text_product_price_calculate">Tambah ke Keranjang - Rp. %1d</string>
     <string name="text_location">Lokasi</string>
+    <string name="text_total_price">Total Harga</string>
+    <string name="text_title_your_cart">Keranjang</string>
+    <string name="text_cart_is_empty">Cart is Empty</string>
+    <string name="text_hint_notes">Notes</string>
+    <string name="text_nav_profile">Profile</string>
+    <string name="text_nav_cart">Cart</string>
+    <string name="text_nav_home">Home</string>
 </resources>

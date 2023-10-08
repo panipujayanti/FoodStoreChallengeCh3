@@ -1,4 +1,4 @@
-package com.napa.foodstorechallengech3.presentation.feature.fragmenthome
+package com.napa.foodstorechallengech3.presentation.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

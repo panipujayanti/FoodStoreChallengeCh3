@@ -13,6 +13,7 @@ import com.napa.foodstorechallengech3.data.repository.CartRepository
 import com.napa.foodstorechallengech3.data.repository.CartRepositoryImpl
 import com.napa.foodstorechallengech3.databinding.ActivityCheckoutBinding
 import com.napa.foodstorechallengech3.presentation.common.adapter.CartListAdapter
+import com.napa.foodstorechallengech3.presentation.feature.dialogs.SuccessDialogFragment
 import com.napa.foodstorechallengech3.utils.GenericViewModelFactory
 import com.napa.foodstorechallengech3.utils.proceedWhen
 import com.napa.foodstorechallengech3.utils.toCurrencyFormat
@@ -49,6 +50,10 @@ class CheckoutActivity : AppCompatActivity() {
     private fun setOnClickListener() {
         binding.ivBack.setOnClickListener {
             onBackPressed()
+        }
+        binding.btnCheckout.setOnClickListener {
+            val successDialog = SuccessDialogFragment()
+            successDialog.show(supportFragmentManager, "SuccessDialog")
         }
     }
 

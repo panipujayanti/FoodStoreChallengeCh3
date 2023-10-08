@@ -1,4 +1,4 @@
-package com.napa.foodstorechallengech3.presentation.feature.fragmenthome
+package com.napa.foodstorechallengech3.presentation.feature.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.napa.foodstorechallengech3.data.dummy.DummyCategoriesDataSource
@@ -22,9 +21,9 @@ import com.napa.foodstorechallengech3.databinding.FragmentHomeBinding
 import com.napa.foodstorechallengech3.model.Categories
 import com.napa.foodstorechallengech3.model.Menu
 import com.napa.foodstorechallengech3.presentation.feature.detailmenu.DetailMenuActivity
-import com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter.AdapterLayoutMode
-import com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter.AdapterListCategories
-import com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter.MenuListAdapter
+import com.napa.foodstorechallengech3.presentation.feature.home.adapter.AdapterLayoutMode
+import com.napa.foodstorechallengech3.presentation.feature.home.adapter.AdapterListCategories
+import com.napa.foodstorechallengech3.presentation.feature.home.adapter.MenuListAdapter
 import com.napa.foodstorechallengech3.utils.GenericViewModelFactory
 import com.napa.foodstorechallengech3.utils.PreferenceDataStoreHelperImpl
 import com.napa.foodstorechallengech3.utils.proceedWhen

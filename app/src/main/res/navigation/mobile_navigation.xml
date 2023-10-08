@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.napa.foodstorechallengech3.presentation.feature.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.napa.foodstorechallengech3.presentation.feature.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.napa.foodstorechallengech3.presentation.feature.home.FragmentHome"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+</navigation>

@@ -1,4 +1,4 @@
-package com.napa.foodstorechallengech3.presentation.fragmenthome.adapter
+package com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

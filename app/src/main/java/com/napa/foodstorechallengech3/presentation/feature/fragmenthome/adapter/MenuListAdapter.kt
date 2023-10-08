@@ -1,4 +1,4 @@
-package com.napa.foodstorechallengech3.presentation.fragmenthome.adapter
+package com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -19,8 +19,8 @@ class MenuListAdapter (
         override fun areItemsTheSame(oldItem: Menu, newItem: Menu): Boolean {
             return oldItem.name == newItem.name &&
                     oldItem.price == newItem.price &&
-                    oldItem.img == newItem.img &&
-                    oldItem.detail == newItem.detail
+                    oldItem.menuImgUrl == newItem.menuImgUrl &&
+                    oldItem.desc == newItem.desc
         }
         override fun areContentsTheSame(oldItem: Menu, newItem: Menu): Boolean {
             return oldItem.hashCode() == newItem.hashCode()

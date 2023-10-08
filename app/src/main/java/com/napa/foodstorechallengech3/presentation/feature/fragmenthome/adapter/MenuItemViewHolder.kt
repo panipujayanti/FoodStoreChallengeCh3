@@ -1,4 +1,4 @@
-package com.napa.foodstorechallengech3.presentation.fragmenthome.adapter
+package com.napa.foodstorechallengech3.presentation.feature.fragmenthome.adapter
 
 
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +19,7 @@ class LinearMenuItemViewHolder(
     private val onClickListener : (Menu) -> Unit
 ) : RecyclerView.ViewHolder(binding.root),ViewHolderBinder<Menu>{
     override fun bind(item: Menu) {
-        binding.ivMenu.load(item.img){
+        binding.ivMenu.load(item.menuImgUrl){
             crossfade(true)
         }
         binding.tvMenuName.text = item.name
@@ -35,7 +35,7 @@ class GridMenuItemViewHolder(
     private val onClickListener : (Menu) -> Unit
 ) : RecyclerView.ViewHolder(binding.root),ViewHolderBinder<Menu>{
     override fun bind(item: Menu) {
-        binding.ivMenu.load(item.img){
+        binding.ivMenu.load(item.menuImgUrl){
             crossfade(true)
         }
         binding.tvMenuName.text = item.name

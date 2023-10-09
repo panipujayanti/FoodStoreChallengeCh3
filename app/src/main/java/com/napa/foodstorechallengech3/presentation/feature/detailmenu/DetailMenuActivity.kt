@@ -72,7 +72,7 @@ class DetailMenuActivity : AppCompatActivity() {
         viewModel.addToCartResult.observe(this) {
             it.proceedWhen(
                 doOnSuccess = {
-                    Toast.makeText(this, "Add to cart success !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Berhasil Tambahkan Ke Keranjang !", Toast.LENGTH_SHORT).show()
                     finish()
                 }, doOnError = {
                     Toast.makeText(this, it.exception?.message.orEmpty(), Toast.LENGTH_SHORT).show()

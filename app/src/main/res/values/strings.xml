@@ -32,4 +32,29 @@
     <string name="text_e_wallet">Digital</string>
     <string name="text_shopping_summary">Ringkasan Pembayaran</string>
     <string name="text_checkout">Pesan</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="text_already_have_an_account_click_here">Already have an Account ? Login Here</string>
+    <string name="text_register">Register</string>
+    <string name="hint_name">Your Name</string>
+    <string name="hint_email">Email</string>
+    <string name="text_highlight_login_here">Login Here</string>
+    <string name="text_error_name_cannot_empty">Name cannot be empty</string>
+    <string name="hint_password">Password</string>
+    <string name="text_error_email_empty">Email should not be empty</string>
+    <string name="text_error_email_invalid">Enter a valid format email</string>
+    <string name="text_error_password_empty">Password should not be empty</string>
+    <string name="text_error_password_less_than_8_char">Password cannot less than 8 character</string>
+    <string name="text_password_does_not_match">Password doesn\'t match</string>
+    <string name="text_highlight_register">Register Here</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="text_log_in">Log in</string>
+    <string name="text_not_registered_yet_register_here">Not registered yet? Register Here</string>
+    <string name="text_change_profile">Change Profile</string>
+    <string name="text_change_password">Change Password</string>
+    <string name="text_logout">Logout</string>
 </resources>

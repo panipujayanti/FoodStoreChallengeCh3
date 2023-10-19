@@ -9,4 +9,5 @@
     <color name="blue">#FF005a9c</color>
     <color name="light_blue">#ff6691c4</color>
     <color name="lighter_blue">#ffcdd8ec</color>
+    <color name="red_text">#F50057</color>
 </resources>

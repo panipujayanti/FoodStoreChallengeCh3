@@ -75,7 +75,7 @@ class CartViewHolder(
             }
             tvProductCalculate.text = item.itemQuantity.toString()
             tvMenuName.text = item.menuName
-            tvPrice.text = (item.menuPrice).toCurrencyFormat()
+            tvPrice.text = (item.itemQuantity * item.menuPrice).toCurrencyFormat()
         }
     }
 

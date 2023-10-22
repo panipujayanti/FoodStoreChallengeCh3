@@ -8,10 +8,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import coil.load
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.napa.foodstorechallengech3.R
 import com.napa.foodstorechallengech3.data.local.database.AppDatabase
 import com.napa.foodstorechallengech3.data.local.database.datasource.CartDataSource
 import com.napa.foodstorechallengech3.data.local.database.datasource.CartDatabaseDataSource
+import com.napa.foodstorechallengech3.data.network.api.datasource.FoodStoreApiDataSource
+import com.napa.foodstorechallengech3.data.network.api.service.FoodStoreApiService
 import com.napa.foodstorechallengech3.data.repository.CartRepository
 import com.napa.foodstorechallengech3.data.repository.CartRepositoryImpl
 import com.napa.foodstorechallengech3.databinding.ActivityDetailMenuBinding
@@ -30,7 +33,10 @@ class DetailMenuActivity : AppCompatActivity() {
         val database = AppDatabase.getInstance(this)
         val cartDao = database.cartDao()
         val cartDataSource: CartDataSource = CartDatabaseDataSource(cartDao)
-        val repo: CartRepository = CartRepositoryImpl(cartDataSource)
+        val chuckerInterceptor = ChuckerInterceptor(this.applicationContext)
+        val service = FoodStoreApiService.invoke(chuckerInterceptor)
+        val apiDataSource = FoodStoreApiDataSource(service)
+        val repo: CartRepository = CartRepositoryImpl(cartDataSource, apiDataSource)
         GenericViewModelFactory.create(
             DetailMenuViewModel(intent?.extras, repo)
         )

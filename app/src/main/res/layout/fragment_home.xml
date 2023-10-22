@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context=".presentation.feature.home.FragmentHome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -148,17 +149,34 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_categories"
-        android:layout_marginVertical="12dp"
-        android:padding="8dp"
+    <LinearLayout
+        android:id="@+id/ll_categories"
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv_banner"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/cl_list_menu"
-        tools:listitem="@layout/item_categories_menu"/>
+        android:orientation="vertical"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/cv_banner">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_categories"
+            android:layout_marginVertical="12dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_categories_menu"/>
+        <include
+            android:id="@+id/layout_state_category"
+            layout="@layout/common_layout_content_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_list_menu"
@@ -166,7 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
         android:layout_marginHorizontal="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/rv_categories">
+        app:layout_constraintTop_toBottomOf="@+id/ll_categories">
 
         <TextView
             android:id="@+id/tv_name_title_list_menu"
@@ -189,18 +207,31 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_menu"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginVertical="12dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_list_menu"
-        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/item_linear_menu"
-        tools:spanCount="1" />
+        app:layout_constraintTop_toBottomOf="@+id/cl_list_menu">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_linear_menu"
+            android:visibility="gone"
+            tools:spanCount="1" />
+        <include
+            android:id="@+id/layout_state_menu"
+            layout="@layout/common_layout_content_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

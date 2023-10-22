@@ -7,6 +7,7 @@ import com.napa.foodstorechallengech3.model.Menu
 import com.napa.foodstorechallengech3.core.ViewHolderBinder
 import com.napa.foodstorechallengech3.databinding.ItemGridMenuBinding
 import com.napa.foodstorechallengech3.databinding.ItemLinearMenuBinding
+import com.napa.foodstorechallengech3.utils.toCurrencyFormat
 
 
 private fun Double.formatCurrency(currencySymbol: String): String {
@@ -23,7 +24,7 @@ class LinearMenuItemViewHolder(
             crossfade(true)
         }
         binding.tvMenuName.text = item.name
-        binding.tvPriceMenu.text = item.price.formatCurrency("Rp. ")
+        binding.tvPriceMenu.text = item.price.toCurrencyFormat()
         binding.root.setOnClickListener{
             onClickListener.invoke(item)
         }
@@ -39,7 +40,7 @@ class GridMenuItemViewHolder(
             crossfade(true)
         }
         binding.tvMenuName.text = item.name
-        binding.tvPriceMenu.text = item.price.formatCurrency("Rp. ")
+        binding.tvPriceMenu.text = item.price.toCurrencyFormat()
         binding.root.setOnClickListener{
             onClickListener.invoke(item)
         }

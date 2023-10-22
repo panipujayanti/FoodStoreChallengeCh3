@@ -1,35 +1,35 @@
 package com.napa.foodstorechallengech3.data.dummy
 
-import com.napa.foodstorechallengech3.model.Categories
+import com.napa.foodstorechallengech3.model.Category
 
 interface DummyCategoriesDataSource{
-    fun getMenuCategories(): List<Categories>
+    fun getMenuCategories(): List<Category>
 }
 
 class DummyCategoriesDataSourceImpl() : DummyCategoriesDataSource {
-    override fun getMenuCategories(): List<Categories> =
+    override fun getMenuCategories(): List<Category> =
         listOf(
-            Categories(
+            Category(
                 name = "Snack",
                 imgUrl = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/ic_snack.png"
             ),
-            Categories(
+            Category(
                 name = "Minuman",
                 imgUrl = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/ic_drink.png"
             ),
-            Categories(
+            Category(
                 name = "Burger",
                 imgUrl = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/ic_burger.png"
             ),
-            Categories(
+            Category(
                 name = "Dessert",
                 imgUrl = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/ic_dessert.png"
             ),
-            Categories(
+            Category(
                 name = "Sushi",
                 imgUrl = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/ic_sushi.png"
             ),
-            Categories(
+            Category(
                 name = "Chicken",
                 imgUrl = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/ic_chicken.png"
             )

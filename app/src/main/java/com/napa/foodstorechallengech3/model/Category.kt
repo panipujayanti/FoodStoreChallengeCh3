@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 import java.util.UUID
 
 @Parcelize
-data class Categories(
+data class Category(
     val id: String = UUID.randomUUID().toString(),
     val name: String,
     val imgUrl: String

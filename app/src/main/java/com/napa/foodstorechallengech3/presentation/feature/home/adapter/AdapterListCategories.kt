@@ -7,49 +7,62 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.napa.foodstorechallengech3.databinding.ItemCategoriesMenuBinding
-import com.napa.foodstorechallengech3.model.Categories
+import com.napa.foodstorechallengech3.model.Category
 
 
-class AdapterListCategories(): RecyclerView.Adapter<MenuItemCategoriesViewHolder>(){
-    private val differ = AsyncListDiffer(this, object : DiffUtil. ItemCallback<Categories>(){
-        override fun areItemsTheSame(oldItem: Categories, newItem: Categories): Boolean {
-            return oldItem.id == newItem.id
+class AdapterListCategories(private val itemClick: (Category) -> Unit):
+    RecyclerView.Adapter<AdapterListCategories.MenuItemCategoriesViewHolder>() {
+
+    private val dataDiffer =
+        AsyncListDiffer(this, object : DiffUtil.ItemCallback<Category>(){
+        override fun areItemsTheSame(
+            oldItem: Category, newItem: Category
+        ): Boolean {
+            return oldItem.name == newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: Categories, newItem: Categories): Boolean {
-            return oldItem.id == newItem.id
+        override fun areContentsTheSame(
+            oldItem: Category, newItem: Category
+        ): Boolean {
+            return oldItem.name == newItem.name
         }
     })
 
-    fun setData(data: List<Categories>) {
-        differ.submitList(data)
+    fun setData(data: List<Category>) {
+        dataDiffer.submitList(data)
         notifyItemChanged(0, data.size)
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): MenuItemCategoriesViewHolder {
-        return MenuItemCategoriesViewHolder(
-            binding = ItemCategoriesMenuBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
-        )
+    fun submitData(data: List<Category>) {
+        dataDiffer.submitList(data)
     }
 
-    override fun getItemCount(): Int = differ.currentList.size
+    override fun onCreateViewHolder(parent: ViewGroup, iewType: Int): MenuItemCategoriesViewHolder {
+        val binding =
+            ItemCategoriesMenuBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MenuItemCategoriesViewHolder(binding, itemClick)
+    }
+
+    override fun getItemCount(): Int = dataDiffer.currentList.size
 
     override fun onBindViewHolder(holder: MenuItemCategoriesViewHolder, position: Int) {
-        holder.bind(differ.currentList[position])
+        holder.bind(dataDiffer.currentList[position])
+    }
+
+    class MenuItemCategoriesViewHolder(
+        private val binding: ItemCategoriesMenuBinding,
+        val itemClick: (Category) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root){
+        fun bind(item: Category) {
+            with(item) {
+                binding.ivIconCategoriesMenu.load(item.imgUrl){
+                    crossfade(true)
+                }
+                binding.tvNameMenu.text = item.name
+                itemView.setOnClickListener { itemClick(this) }
+            }
+        }
     }
 }
 
 
-class MenuItemCategoriesViewHolder(
-    private val binding: ItemCategoriesMenuBinding
-) : RecyclerView.ViewHolder(binding.root){
-    fun bind(item: Categories) {
-        binding.ivIconCategoriesMenu.load(item.imgUrl)
-        binding.tvNameMenu.text = item.name
-    }
-}

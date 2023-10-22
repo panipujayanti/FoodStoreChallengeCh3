@@ -3,6 +3,7 @@ package com.napa.foodstorechallengech3.presentation.feature.main
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,9 @@ import com.napa.foodstorechallengech3.R
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.Gson
+import com.napa.foodstorechallengech3.data.dummy.DummyCategoriesDataSourceImpl
+import com.napa.foodstorechallengech3.data.dummy.DummyMenuDataSourceImpl
 import com.napa.foodstorechallengech3.data.local.datastore.appDataStore
 import com.napa.foodstorechallengech3.data.network.firebase.auth.FirebaseAuthDataSourceImpl
 import com.napa.foodstorechallengech3.data.repository.UserRepositoryImpl
@@ -32,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupBottomNav()
+        val json = Gson().toJson(DummyMenuDataSourceImpl().getMenuList())
+        val jsonca = Gson().toJson(DummyCategoriesDataSourceImpl().getMenuCategories())
+        Log.d("Main", json)
     }
 
 

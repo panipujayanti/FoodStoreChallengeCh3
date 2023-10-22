@@ -30,6 +30,15 @@ android {
             )
         }
     }
+    flavorDimensions += "env"
+    productFlavors {
+        create("production") {
+            buildConfigField("String", "BASE_URL", "\"https://a2d4a6ae-aa78-4300-8ccc-998027df3225.mock.pstmn.io\"")
+        }
+        create("integration") {
+            buildConfigField("String", "BASE_URL", "\"https://a2d4a6ae-aa78-4300-8ccc-998027df3225.mock.pstmn.io\"")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -39,6 +48,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -76,4 +86,13 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics-ktx")
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
+
+    //retrofit & okhttp
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
+    //chucker
+    debugImplementation ("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:4.0.0")
 }

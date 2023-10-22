@@ -1,37 +1,32 @@
 package com.napa.foodstorechallengech3.data.repository
 
-import com.napa.foodstorechallengech3.data.dummy.DummyCategoriesDataSource
-import com.napa.foodstorechallengech3.data.local.database.datasource.MenuDataSource
-import com.napa.foodstorechallengech3.data.local.database.mapper.toMenuList
-import com.napa.foodstorechallengech3.model.Categories
+import com.napa.foodstorechallengech3.data.network.api.datasource.FoodStoreDataSource
+import com.napa.foodstorechallengech3.data.network.api.model.category.toCategoryList
+import com.napa.foodstorechallengech3.data.network.api.model.menu.toMenuList
+import com.napa.foodstorechallengech3.model.Category
 import com.napa.foodstorechallengech3.model.Menu
 import com.napa.foodstorechallengech3.utils.ResultWrapper
-import com.napa.foodstorechallengech3.utils.proceed
-import kotlinx.coroutines.delay
+import com.napa.foodstorechallengech3.utils.proceedFlow
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onStart
 
 interface MenuRepository {
-    fun getCategories(): List<Categories>
-    fun getProducts(): Flow<ResultWrapper<List<Menu>>>
+    fun getCategories(): Flow<ResultWrapper<List<Category>>>
+    fun getMenus(category: String? = null): Flow<ResultWrapper<List<Menu>>>
 }
 
 class MenuRepositoryImpl(
-    private val menuDataSource: MenuDataSource,
-    private val dummyCategoriesDataSource: DummyCategoriesDataSource
+    private val apiDataSource: FoodStoreDataSource,
 ) : MenuRepository {
 
-    override fun getCategories(): List<Categories> {
-        return dummyCategoriesDataSource.getMenuCategories()
+    override fun getCategories(): Flow<ResultWrapper<List<Category>>> {
+        return proceedFlow {
+            apiDataSource.getCategories().data?.toCategoryList() ?: emptyList()
+        }
     }
 
-    override fun getProducts(): Flow<ResultWrapper<List<Menu>>> {
-        return menuDataSource.getAllMenus().map {
-            proceed { it.toMenuList() }
-        }.onStart {
-            emit(ResultWrapper.Loading())
-            delay(2000)
+    override fun getMenus(category: String?): Flow<ResultWrapper<List<Menu>>> {
+        return proceedFlow {
+            apiDataSource.getProducts(category).data?.toMenuList() ?: emptyList()
         }
     }
 }

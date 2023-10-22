@@ -122,7 +122,7 @@ class ProfileFragment : Fragment() {
         binding.tvChangePwd.setOnClickListener {
             requestChangePassword()
         }
-        binding.tvLogout.setOnClickListener {
+        binding.llLogout.setOnClickListener {
             doLogout()
         }
     }

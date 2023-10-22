@@ -13,3 +13,5 @@ Icon List = https://www.canva.com/p/googledesignicons/
 Image Header = https://www.canva.com/p/sadewa1/
 Icon Sushi = https://www.freepik.com/free-vector/hand-drawn-sushi-illustration_29703736.htm#query=sushi&from_query=shusi&position=23&from_view=search&track=sph
 Icon Fried Chicken = https://www.freepik.com/free-vector/flying-fried-chicken-with-bucket-cartoon_10711552.htm#query=icon%20ayam%20goreng&position=0&from_view=search&track=ais
+
+screenshot_crashlytics = https://drive.google.com/file/d/1Kxj0Wmc3i-yL1GQxsH7XmpWa0-vcZpyO/view?usp=sharing

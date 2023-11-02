@@ -4,12 +4,12 @@ import com.napa.foodstorechallengech3.data.network.api.model.order.OrderItemRequ
 
 data class Cart(
     var id: Int? = null,
-    var menuId : String,
-    var menuName : String,
-    var menuPrice : Int,
+    var menuId: String,
+    var menuName: String,
+    var menuPrice: Int,
     var itemQuantity: Int = 0,
     var menuImgUrl: String,
-    var itemNotes: String? = null,
+    var itemNotes: String? = null
 )
 
 fun Cart.toOrderItemRequest() = OrderItemRequest(

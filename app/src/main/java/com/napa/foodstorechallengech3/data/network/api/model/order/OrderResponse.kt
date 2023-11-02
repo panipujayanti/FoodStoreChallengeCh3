@@ -1,14 +1,12 @@
-package com.napa.foodstorechallengech3.data.network.api.model.category
+package com.napa.foodstorechallengech3.data.network.api.model.order
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class CategoriesResponse(
+data class OrderResponse(
     @SerializedName("code")
     val code: Int?,
-    @SerializedName("data")
-    val data: List<CategoryResponse>?,
     @SerializedName("message")
     val message: String?,
     @SerializedName("status")

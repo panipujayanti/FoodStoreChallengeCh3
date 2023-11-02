@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
     tools:context=".presentation.feature.register.RegisterActivity">
 
     <TextView
@@ -17,10 +16,10 @@
         android:layout_marginTop="50dp"
         android:textStyle="bold"
         android:textSize="34sp"
-        android:textColor="@color/color_primary"
+        android:textColor="@color/app_color_primary"
         android:fontFamily="@font/poppins_bold"
         android:textColorHighlight="@color/grey"
-        android:text="Register" />
+        android:text="@string/text_header_greeting_register" />
 
     <TextView
         android:id="@+id/tv_desc_greeting"
@@ -29,11 +28,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_greeting"
-        android:textColor="@color/color_primary"
+        android:textColor="@color/app_color_primary"
         android:fontFamily="@font/poppins_medium"
         android:layout_marginTop="4dp"
         android:textSize="16sp"
-        android:text="Let's get started. Are you ready \n to be a part of something new?" />
+        android:text="@string/text_desc_greeting_register" />
 
     <ImageView
         android:id="@+id/iv_logo_app"
@@ -66,7 +65,7 @@
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_primary"
+            android:backgroundTint="@color/app_color_primary"
             android:text="@string/text_register" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator

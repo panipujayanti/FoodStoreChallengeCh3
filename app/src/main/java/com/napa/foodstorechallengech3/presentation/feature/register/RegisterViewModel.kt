@@ -14,13 +14,11 @@ class RegisterViewModel(private val repository: UserRepository) : ViewModel() {
     val registerResult: LiveData<ResultWrapper<Boolean>>
         get() = _registerResult
 
-    fun doRegister(fullName: String, email:String, password:String) {
+    fun doRegister(fullName: String, email: String, password: String) {
         viewModelScope.launch {
             repository.doRegister(fullName, email, password).collect() { result ->
                 _registerResult.postValue(result)
-
             }
         }
     }
-
 }

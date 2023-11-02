@@ -6,5 +6,4 @@ import com.napa.foodstorechallengech3.data.repository.UserRepository
 class SplashViewModel(private val repository: UserRepository) : ViewModel() {
 
     fun isUserLoggedIn() = repository.isLoggedIn()
-
 }

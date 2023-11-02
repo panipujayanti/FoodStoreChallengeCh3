@@ -10,38 +10,46 @@ import com.napa.foodstorechallengech3.databinding.ItemGridMenuBinding
 import com.napa.foodstorechallengech3.databinding.ItemLinearMenuBinding
 import com.napa.foodstorechallengech3.model.Menu
 
-class MenuListAdapter (
+class MenuListAdapter(
     var adapterLayoutMode: AdapterLayoutMode,
     private val onClickListener: (Menu) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val dataDiffer = AsyncListDiffer(this,object : DiffUtil.ItemCallback<Menu>(){
-        override fun areItemsTheSame(oldItem: Menu, newItem: Menu): Boolean {
-            return oldItem.name == newItem.name &&
+    private val dataDiffer = AsyncListDiffer(
+        this,
+        object : DiffUtil.ItemCallback<Menu>() {
+            override fun areItemsTheSame(oldItem: Menu, newItem: Menu): Boolean {
+                return oldItem.name == newItem.name &&
                     oldItem.price == newItem.price &&
                     oldItem.menuImgUrl == newItem.menuImgUrl &&
                     oldItem.desc == newItem.desc
+            }
+            override fun areContentsTheSame(oldItem: Menu, newItem: Menu): Boolean {
+                return oldItem.hashCode() == newItem.hashCode()
+            }
         }
-        override fun areContentsTheSame(oldItem: Menu, newItem: Menu): Boolean {
-            return oldItem.hashCode() == newItem.hashCode()
-        }
-    })
-
+    )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             AdapterLayoutMode.GRID.ordinal -> {
                 GridMenuItemViewHolder(
                     binding = ItemGridMenuBinding.inflate(
-                        LayoutInflater.from(parent.context),parent,false
-                    ),onClickListener
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    ),
+                    onClickListener
                 )
             }
             else -> {
                 LinearMenuItemViewHolder(
                     binding = ItemLinearMenuBinding.inflate(
-                        LayoutInflater.from(parent.context),parent,false
-                    ),onClickListener
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    ),
+                    onClickListener
                 )
             }
         }
@@ -55,12 +63,11 @@ class MenuListAdapter (
     override fun getItemViewType(position: Int): Int {
         return adapterLayoutMode.ordinal
     }
-    fun submitData(data : List<Menu>){
+    fun submitData(data: List<Menu>) {
         dataDiffer.submitList(data)
     }
 
     fun refreshList() {
-        notifyItemRangeChanged(0,dataDiffer.currentList.size)
+        notifyItemRangeChanged(0, dataDiffer.currentList.size)
     }
-
 }

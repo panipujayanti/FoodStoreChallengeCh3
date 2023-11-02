@@ -4,7 +4,7 @@ import com.napa.foodstorechallengech3.data.local.database.datasource.CartDataSou
 import com.napa.foodstorechallengech3.data.local.database.entity.CartEntity
 import com.napa.foodstorechallengech3.data.local.database.mapper.toCartEntity
 import com.napa.foodstorechallengech3.data.local.database.mapper.toCartList
-import com.napa.foodstorechallengech3.data.network.api.datasource.FoodStoreApiDataSource
+import com.napa.foodstorechallengech3.data.network.api.datasource.FoodStoreDataSource
 import com.napa.foodstorechallengech3.data.network.api.model.order.OrderRequest
 import com.napa.foodstorechallengech3.model.Cart
 import com.napa.foodstorechallengech3.model.Menu
@@ -28,11 +28,10 @@ interface CartRepository {
     suspend fun deleteCart(item: Cart): Flow<ResultWrapper<Boolean>>
     suspend fun deleteAllCarts()
     suspend fun createOrder(items: List<Cart>, totalPrice: Int, username: String): Flow<ResultWrapper<Boolean>>
-
 }
 class CartRepositoryImpl(
     private val dataSource: CartDataSource,
-    private val apiDataSource: FoodStoreApiDataSource
+    private val foodStoreDataSource: FoodStoreDataSource
 ) : CartRepository {
 
     override fun getUserCartData(): Flow<ResultWrapper<Pair<List<Cart>, Int>>> {
@@ -47,7 +46,7 @@ class CartRepositoryImpl(
                 Pair(cartList, totalPrice)
             }
         }.map {
-            if (it.payload?.first?.isEmpty() == true){
+            if (it.payload?.first?.isEmpty() == true) {
                 ResultWrapper.Empty(it.payload)
             } else {
                 it
@@ -60,7 +59,7 @@ class CartRepositoryImpl(
 
     override suspend fun createCart(
         menu: Menu,
-        totalQuantity: Int,
+        totalQuantity: Int
     ): Flow<ResultWrapper<Boolean>> {
         return menu.id?.let { menuId ->
             proceedFlow {
@@ -70,7 +69,7 @@ class CartRepositoryImpl(
                         menuImgUrl = menu.menuImgUrl,
                         menuName = menu.name,
                         menuPrice = menu.price,
-                        menuId = menuId,
+                        menuId = menuId
                     )
                 )
                 affectedRow > 0
@@ -114,7 +113,7 @@ class CartRepositoryImpl(
         return proceedFlow {
             val orderItem = items.toOrderItemRequestList()
             val orderRequest = OrderRequest(orderItem, totalPrice, username)
-            apiDataSource.createOrder(orderRequest).status == true
+            foodStoreDataSource.createOrder(orderRequest).status == true
         }
     }
 }

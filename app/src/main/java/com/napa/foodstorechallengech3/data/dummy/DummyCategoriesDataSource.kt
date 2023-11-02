@@ -2,7 +2,7 @@ package com.napa.foodstorechallengech3.data.dummy
 
 import com.napa.foodstorechallengech3.model.Category
 
-interface DummyCategoriesDataSource{
+interface DummyCategoriesDataSource {
     fun getMenuCategories(): List<Category>
 }
 

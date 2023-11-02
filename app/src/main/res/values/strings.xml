@@ -1,14 +1,12 @@
 <resources>
     <string name="app_name">FoodStoreChallengeCh3</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_header_name">Hai Binarian</string>
     <string name="text_header_greeting">Mau makan apa hari ini?</string>
     <string name="text_search">Searching</string>
     <string name="text_discount">Diskon 30%</string>
     <string name="text_complement_discount">Pesan makanan lewat aplikasi dan dapatkan diskonmu</string>
     <string name="text_title_list_menu">List Menu Makanan</string>
-    <string name="text_product_price_calculate">Tambah ke Keranjang - Rp. %1d</string>
     <string name="text_location">Lokasi</string>
     <string name="text_total_price">Total Harga</string>
     <string name="text_title_your_cart">Keranjang</string>
@@ -18,12 +16,6 @@
     <string name="text_nav_cart">Cart</string>
     <string name="text_nav_home">Home</string>
     <string name="total_quantity">x%s</string>
-    <string name="text_label_username">Username</string>
-    <string name="text_user_name">Pani Puja Yanti</string>
-    <string name="text_label_email_address">Email</string>
-    <string name="text_email_address">panipujayanti@gmail.com</string>
-    <string name="text_label_phone_number">Nomor Telepon</string>
-    <string name="text_phone_number">08886040870</string>
     <string name="text_delivery_method">Metode Pengiriman</string>
     <string name="text_pick_up">Ambil Sendiri</string>
     <string name="text_delivery">Dikirim</string>
@@ -32,12 +24,6 @@
     <string name="text_e_wallet">Digital</string>
     <string name="text_shopping_summary">Ringkasan Pembayaran</string>
     <string name="text_checkout">Pesan</string>
-    <string name="title_activity_splash">SplashActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
     <string name="text_already_have_an_account_click_here">Already have an Account ? Login Here</string>
     <string name="text_register">Register</string>
     <string name="hint_name">Your Name</string>
@@ -58,4 +44,18 @@
     <string name="text_change_password">Change Password</string>
     <string name="text_logout">Logout</string>
     <string name="text_ok">OK</string>
+    <string name="all">all</string>
+    <string name="text_number">1</string>
+    <string name="product_not_found">Product not found</string>
+    <string name="text_header_confirmation_order">Konfirmasi Pesanan</string>
+    <string name="desc_image_button">image button back</string>
+    <string name="text_add_to_cart">Tambahkan ke keranjang</string>
+    <string name="text_header_greeting_login">Welcome back!</string>
+    <string name="text_desc_greeting">Login to your account</string>
+    <string name="text_header_greeting_register">Register</string>
+    <string name="text_desc_greeting_register">Let\'s get started. Are you ready \n to be a part of something new?</string>
+    <string name="text_greeting_splash">Welcome!</string>
+    <string name="text_order">Pesan</string>
+    <string name="text_header_profile">Profile</string>
+    <string name="text_number_count">1</string>
 </resources>

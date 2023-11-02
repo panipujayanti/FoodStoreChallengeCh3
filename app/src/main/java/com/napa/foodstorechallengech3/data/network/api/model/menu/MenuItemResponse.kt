@@ -1,8 +1,7 @@
 package com.napa.foodstorechallengech3.data.network.api.model.menu
 
-
-import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import com.napa.foodstorechallengech3.model.Menu
 
 @Keep

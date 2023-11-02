@@ -3,25 +3,17 @@ package com.napa.foodstorechallengech3.presentation.feature.detailmenu
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import coil.load
-import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.napa.foodstorechallengech3.R
-import com.napa.foodstorechallengech3.data.local.database.AppDatabase
-import com.napa.foodstorechallengech3.data.local.database.datasource.CartDataSource
-import com.napa.foodstorechallengech3.data.local.database.datasource.CartDatabaseDataSource
-import com.napa.foodstorechallengech3.data.network.api.datasource.FoodStoreApiDataSource
-import com.napa.foodstorechallengech3.data.network.api.service.FoodStoreApiService
-import com.napa.foodstorechallengech3.data.repository.CartRepository
-import com.napa.foodstorechallengech3.data.repository.CartRepositoryImpl
 import com.napa.foodstorechallengech3.databinding.ActivityDetailMenuBinding
 import com.napa.foodstorechallengech3.model.Menu
-import com.napa.foodstorechallengech3.utils.GenericViewModelFactory
 import com.napa.foodstorechallengech3.utils.proceedWhen
 import com.napa.foodstorechallengech3.utils.toCurrencyFormat
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class DetailMenuActivity : AppCompatActivity() {
 
@@ -29,35 +21,26 @@ class DetailMenuActivity : AppCompatActivity() {
         ActivityDetailMenuBinding.inflate(layoutInflater)
     }
 
-    private val viewModel: DetailMenuViewModel by viewModels {
-        val database = AppDatabase.getInstance(this)
-        val cartDao = database.cartDao()
-        val cartDataSource: CartDataSource = CartDatabaseDataSource(cartDao)
-        val chuckerInterceptor = ChuckerInterceptor(this.applicationContext)
-        val service = FoodStoreApiService.invoke(chuckerInterceptor)
-        val apiDataSource = FoodStoreApiDataSource(service)
-        val repo: CartRepository = CartRepositoryImpl(cartDataSource, apiDataSource)
-        GenericViewModelFactory.create(
-            DetailMenuViewModel(intent?.extras, repo)
-        )
+    private val viewModel: DetailMenuViewModel by viewModel {
+        parametersOf(intent.extras ?: bundleOf())
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         bindMenu(viewModel.menu)
         observeData()
         setClickListener()
-
     }
 
     private fun setClickListener() {
         binding.backBtn.setOnClickListener {
             onBackPressed()
         }
-        binding.ivMinus.setOnClickListener{
+        binding.ivMinus.setOnClickListener {
             viewModel.minus()
         }
-        binding.ivPlus.setOnClickListener{
+        binding.ivPlus.setOnClickListener {
             viewModel.add()
         }
         binding.tvLocation.setOnClickListener {
@@ -69,10 +52,10 @@ class DetailMenuActivity : AppCompatActivity() {
     }
 
     private fun observeData() {
-        viewModel.priceLiveData.observe(this){
+        viewModel.priceLiveData.observe(this) {
             binding.tvCalculatedProductPrice.text = it.toCurrencyFormat()
         }
-        viewModel.menuCountLiveData.observe(this){
+        viewModel.menuCountLiveData.observe(this) {
             binding.tvProductCount.text = it.toString()
         }
         viewModel.addToCartResult.observe(this) {
@@ -80,9 +63,11 @@ class DetailMenuActivity : AppCompatActivity() {
                 doOnSuccess = {
                     Toast.makeText(this, "Berhasil Tambahkan Ke Keranjang !", Toast.LENGTH_SHORT).show()
                     finish()
-                }, doOnError = {
+                },
+                doOnError = {
                     Toast.makeText(this, it.exception?.message.orEmpty(), Toast.LENGTH_SHORT).show()
-                })
+                }
+            )
         }
         viewModel.navigateToMapsLiveData.observe(this) { location ->
             location?.let {

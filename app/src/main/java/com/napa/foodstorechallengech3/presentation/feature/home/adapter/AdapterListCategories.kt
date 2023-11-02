@@ -9,24 +9,28 @@ import coil.load
 import com.napa.foodstorechallengech3.databinding.ItemCategoriesMenuBinding
 import com.napa.foodstorechallengech3.model.Category
 
-
-class AdapterListCategories(private val itemClick: (Category) -> Unit):
+class AdapterListCategories(private val itemClick: (Category) -> Unit) :
     RecyclerView.Adapter<AdapterListCategories.MenuItemCategoriesViewHolder>() {
 
     private val dataDiffer =
-        AsyncListDiffer(this, object : DiffUtil.ItemCallback<Category>(){
-        override fun areItemsTheSame(
-            oldItem: Category, newItem: Category
-        ): Boolean {
-            return oldItem.name == newItem.name
-        }
+        AsyncListDiffer(
+            this,
+            object : DiffUtil.ItemCallback<Category>() {
+                override fun areItemsTheSame(
+                    oldItem: Category,
+                    newItem: Category
+                ): Boolean {
+                    return oldItem.name == newItem.name
+                }
 
-        override fun areContentsTheSame(
-            oldItem: Category, newItem: Category
-        ): Boolean {
-            return oldItem.name == newItem.name
-        }
-    })
+                override fun areContentsTheSame(
+                    oldItem: Category,
+                    newItem: Category
+                ): Boolean {
+                    return oldItem.name == newItem.name
+                }
+            }
+        )
 
     fun setData(data: List<Category>) {
         dataDiffer.submitList(data)
@@ -52,10 +56,10 @@ class AdapterListCategories(private val itemClick: (Category) -> Unit):
     class MenuItemCategoriesViewHolder(
         private val binding: ItemCategoriesMenuBinding,
         val itemClick: (Category) -> Unit
-    ) : RecyclerView.ViewHolder(binding.root){
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Category) {
             with(item) {
-                binding.ivIconCategoriesMenu.load(item.imgUrl){
+                binding.ivIconCategoriesMenu.load(item.imgUrl) {
                     crossfade(true)
                 }
                 binding.tvNameMenu.text = item.name
@@ -64,5 +68,3 @@ class AdapterListCategories(private val itemClick: (Category) -> Unit):
         }
     }
 }
-
-

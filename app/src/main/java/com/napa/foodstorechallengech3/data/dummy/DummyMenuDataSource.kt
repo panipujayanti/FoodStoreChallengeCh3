@@ -39,6 +39,6 @@ class DummyMenuDataSourceImpl() : DummyMenuDataSource {
             menuImgUrl = "https://raw.githubusercontent.com/panipujayanti/FoodStore_Challenge_BinarCH2/main/app/src/main/res/drawable/img_chicken_burger.png",
             desc = "Daging ayam renyah, saus spesial, dan sayuran segar dalam roti burger lembut. Kesempurnaan burger!",
             location = "Jl. Kemang V No.6F, Bangka, Kec. Mampang Prpt., Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12730"
-        ),
+        )
     )
 }

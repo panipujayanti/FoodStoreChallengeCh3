@@ -21,29 +21,29 @@ class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
 
     fun getCurrentUser() = repository.getCurrentUser()
 
-    fun updateProfilePicture(photoUri: Uri){
+    fun updateProfilePicture(photoUri: Uri) {
         viewModelScope.launch(Dispatchers.IO) {
             photoUri?.let {
-                repository.updateProfile(photoUri = photoUri).collect{
+                repository.updateProfile(photoUri = photoUri).collect {
                     _changePhotoResult.postValue(it)
                 }
             }
         }
     }
 
-    fun updateFullName(fullName: String){
+    fun updateFullName(fullName: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updateProfile(fullName).collect{
+            repository.updateProfile(fullName).collect {
                 _changeProfileResult.postValue(it)
             }
         }
     }
 
-    fun createChangePwdRequest(){
+    fun createChangePwdRequest() {
         repository.sendChangePasswordRequestByEmail()
     }
 
-    fun doLogout(){
+    fun doLogout() {
         repository.doLogout()
     }
     private val _isEditModeEnabled = MutableLiveData<Boolean>()

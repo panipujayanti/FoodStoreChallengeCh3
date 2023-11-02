@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
     tools:context=".presentation.splashscreen.SplashActivity">
 
     <TextView
@@ -16,10 +15,10 @@
         app:layout_constraintBottom_toTopOf="@+id/iv_logo_app"
         android:textStyle="bold"
         android:textSize="34sp"
-        android:textColor="@color/color_primary"
+        android:textColor="@color/app_color_primary"
         android:fontFamily="@font/poppins_bold"
         android:textColorHighlight="@color/grey"
-        android:text="Welcome!" />
+        android:text="@string/text_greeting_splash" />
 
     <ImageView
         android:id="@+id/iv_logo_app"

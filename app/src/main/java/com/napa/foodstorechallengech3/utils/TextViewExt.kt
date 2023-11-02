@@ -8,7 +8,6 @@ import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
 
-
 fun TextView.highLightWord(word: String, onClick: () -> Unit) {
     val ssBuilder = SpannableStringBuilder(this.text)
     val clickAbleSpan = object : ClickableSpan() {
@@ -28,5 +27,5 @@ fun TextView.highLightWord(word: String, onClick: () -> Unit) {
         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
     )
     text = ssBuilder
-    movementMethod = LinkMovementMethod.getInstance();
+    movementMethod = LinkMovementMethod.getInstance()
 }

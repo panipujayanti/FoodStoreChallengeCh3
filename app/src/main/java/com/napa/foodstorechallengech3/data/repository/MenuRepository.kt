@@ -15,7 +15,7 @@ interface MenuRepository {
 }
 
 class MenuRepositoryImpl(
-    private val apiDataSource: FoodStoreDataSource,
+    private val apiDataSource: FoodStoreDataSource
 ) : MenuRepository {
 
     override fun getCategories(): Flow<ResultWrapper<List<Category>>> {

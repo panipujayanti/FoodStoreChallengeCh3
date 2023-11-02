@@ -27,14 +27,12 @@ class DetailMenuViewModel(
     val addToCartResult: LiveData<ResultWrapper<Boolean>>
         get() = _addToCartResult
 
-
     val navigateToMapsLiveData = MutableLiveData<String?>()
 
     fun onLocationClicked() {
         val location = menu?.location
         navigateToMapsLiveData.value = location
     }
-
 
     fun add() {
         val count = (menuCountLiveData.value ?: 0) + 1
@@ -43,8 +41,8 @@ class DetailMenuViewModel(
     }
 
     fun minus() {
-        if((menuCountLiveData.value ?: 0) > 0){
-            val count = (menuCountLiveData.value ?: 0) -1
+        if ((menuCountLiveData.value ?: 0) > 0) {
+            val count = (menuCountLiveData.value ?: 0) - 1
             menuCountLiveData.postValue(count)
             priceLiveData.postValue(menu?.price?.times(count) ?: 0)
         }
@@ -61,5 +59,4 @@ class DetailMenuViewModel(
             }
         }
     }
-
 }

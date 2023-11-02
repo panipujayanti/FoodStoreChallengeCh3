@@ -12,7 +12,7 @@
         android:elevation="8dp"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:background="@color/color_primary"
+        android:background="@color/app_color_primary"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -93,11 +93,11 @@
                 android:id="@+id/btn_checkout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pesan"
+                android:text="@string/text_order"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:backgroundTint="@color/color_primary"/>
+                android:backgroundTint="@color/app_color_primary"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

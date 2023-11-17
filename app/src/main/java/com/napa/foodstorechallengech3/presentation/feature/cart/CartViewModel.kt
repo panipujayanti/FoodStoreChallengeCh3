@@ -40,4 +40,8 @@ class CartViewModel(private val repo: CartRepository) : ViewModel() {
     fun setCartNotes(item: Cart) {
         viewModelScope.launch { repo.setCartNotes(item).collect() }
     }
+
+    fun cartNotEmpty(): Boolean {
+        return cartList.value?.payload?.first?.isNotEmpty() ?: false
+    }
 }

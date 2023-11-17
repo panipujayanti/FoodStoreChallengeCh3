@@ -1,5 +1,6 @@
 package com.napa.foodstorechallengech3.presentation.feature.checkout
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -8,6 +9,7 @@ import androidx.core.view.isVisible
 import com.napa.foodstorechallengech3.R
 import com.napa.foodstorechallengech3.databinding.ActivityCheckoutBinding
 import com.napa.foodstorechallengech3.presentation.common.adapter.CartListAdapter
+import com.napa.foodstorechallengech3.presentation.feature.main.MainActivity
 import com.napa.foodstorechallengech3.utils.proceedWhen
 import com.napa.foodstorechallengech3.utils.toCurrencyFormat
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,6 +24,13 @@ class CheckoutActivity : AppCompatActivity() {
 
     private val adapter: CartListAdapter by lazy {
         CartListAdapter()
+    }
+
+    private fun navigateToMain() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        startActivity(intent)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -118,6 +127,7 @@ class CheckoutActivity : AppCompatActivity() {
             .setMessage("Terima kasih! Pesanan Anda Sedang Kami Proses.")
             .setPositiveButton(getString(R.string.text_ok)) { _, _ ->
                 viewModel.clearCart()
+                navigateToMain()
                 finish()
             }.create().show()
     }

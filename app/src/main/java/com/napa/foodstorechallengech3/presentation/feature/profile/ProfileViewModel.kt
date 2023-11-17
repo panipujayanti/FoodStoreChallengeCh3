@@ -46,14 +46,4 @@ class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
     fun doLogout() {
         repository.doLogout()
     }
-    private val _isEditModeEnabled = MutableLiveData<Boolean>()
-    val isEditModeEnabled: LiveData<Boolean>
-        get() = _isEditModeEnabled
-    init {
-        _isEditModeEnabled.value = false
-    }
-
-    fun toggleEditMOde() {
-        _isEditModeEnabled.value = _isEditModeEnabled.value?.not()
-    }
 }

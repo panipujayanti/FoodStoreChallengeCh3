@@ -88,7 +88,7 @@
             app:layout_constraintBottom_toTopOf="@id/cv_section_checkout"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="3"
-            tools:listitem="@layout/item_cart_menu" />
+            tools:listitem="@layout/item_cart_menu_order" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_payment_method"

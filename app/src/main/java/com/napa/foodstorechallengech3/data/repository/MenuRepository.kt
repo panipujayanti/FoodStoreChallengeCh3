@@ -26,7 +26,7 @@ class MenuRepositoryImpl(
 
     override fun getMenus(category: String?): Flow<ResultWrapper<List<Menu>>> {
         return proceedFlow {
-            apiDataSource.getProducts(category).data?.toMenuList() ?: emptyList()
+            apiDataSource.getMenus(category).data?.toMenuList() ?: emptyList()
         }
     }
 }

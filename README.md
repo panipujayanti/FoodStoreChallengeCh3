@@ -5,7 +5,7 @@ plugins figma, iconify
 Image discount = https://www.canva.com/p/chetra168/
 Image Burger = https://www.canva.com/p/dsapproject/
 Image Chicken Burger = https://www.canva.com/p/mursmans-images/
-Icon  Dessert = https://www.canva.com/p/spresso-design/
+Icon  Dessert = https://wwrequestedw.canva.com/p/spresso-design/
 Icon Burger = https://www.canva.com/p/kawacreative/
 Icon Minuman = https://www.canva.com/p/werachai-watercolor/
 Icon Snack = https://www.canva.com/p/ourlifelooklikeballoons-images/

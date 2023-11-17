@@ -41,11 +41,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true
@@ -78,6 +78,7 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
+    testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
@@ -117,4 +118,10 @@ dependencies {
 
     // koin
     implementation("io.insert-koin:koin-android:3.5.0")
+
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("io.mockk:mockk-agent:1.13.8")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
+    testImplementation("app.cash.turbine:turbine:1.0.0")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
 }

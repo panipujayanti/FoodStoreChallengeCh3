@@ -9,6 +9,7 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
+import io.mockk.mockkStatic
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
@@ -93,6 +94,15 @@ class FirebaseAuthDataSourceImplTest {
             val result = dataSource.getCurrentUser()
             Assert.assertEquals(result, firebaseUserMock)
         }
+    }
+
+    @Test
+    fun testLogout() {
+        mockkStatic(FirebaseAuth::class)
+        every { FirebaseAuth.getInstance() } returns firebaseAuth
+        every { firebaseAuth.signOut() } returns Unit
+        val result = dataSource.doLogout()
+        Assert.assertEquals(result, true)
     }
 
     @Test

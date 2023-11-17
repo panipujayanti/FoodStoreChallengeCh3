@@ -15,3 +15,5 @@ Icon Sushi = https://www.freepik.com/free-vector/hand-drawn-sushi-illustration_2
 Icon Fried Chicken = https://www.freepik.com/free-vector/flying-fried-chicken-with-bucket-cartoon_10711552.htm#query=icon%20ayam%20goreng&position=0&from_view=search&track=ais
 
 screenshot_crashlytics = https://drive.google.com/file/d/1Kxj0Wmc3i-yL1GQxsH7XmpWa0-vcZpyO/view?usp=sharing
+
+Dokumentasi performa aplikasi melalui Network Profiler = https://drive.google.com/file/d/11tuFggUw5G3arRgIYz5Bn2QkOWDSIxhY/view?usp=sharing
